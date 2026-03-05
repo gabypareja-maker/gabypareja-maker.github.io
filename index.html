@@ -5,200 +5,363 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gabriela Pareja Mena — Cybersecurity | GRC | Enterprise Architecture</title>
   <meta name="description" content="Cybersecurity Specialist · Governance, Risk & Compliance · Enterprise Architecture. Building secure, human-centered strategies that turn risk into business value." />
+
+  <!-- Fonts (similar to your site look) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0c0f;
-      --card:#11131a;
-      --text:#e9ecf1;
-      --muted:#b5bdc9;
-      --line:rgba(255,255,255,.10);
-      --accent:#8fd3ff;
+      /* Palette (matched to screenshots) */
+      --navy:#153A59;          /* hero background */
+      --gold:#C8A27A;          /* accent */
+      --page:#F2F3F5;          /* page background */
+      --card:#FFFFFF;          /* card background */
+      --cardAlt:#E9ECEF;       /* subtle alt */
+      --text:#1F2D3D;          /* main text */
+      --muted:#5F6F81;         /* secondary text */
+      --line:rgba(31,45,61,.10);
+
       --radius:18px;
       --max:1080px;
+
+      --shadow: 0 8px 22px rgba(31,45,61,.08);
     }
-    *{box-sizing:border-box}
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(143,211,255,.12), transparent 60%),
-                  radial-gradient(900px 500px at 90% 20%, rgba(255,255,255,.06), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.55;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--page);
+      color: var(--text);
+      line-height:1.6;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:10px 0 22px;
-      position:sticky; top:0; backdrop-filter:saturate(140%) blur(10px);
-      background: linear-gradient(to bottom, rgba(11,12,15,.92), rgba(11,12,15,.55));
-      border-bottom:1px solid var(--line);
-      z-index:10;
-    }
-    .brand{font-weight:700; letter-spacing:.06em; font-size:.92rem}
-    nav a{margin-left:14px; text-decoration:none; color:var(--muted); font-size:.92rem}
-    nav a:hover{color:var(--text)}
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+
+    /* =========================
+       HERO (matches your top section)
+       ========================= */
     .hero{
-      display:grid; grid-template-columns: 1.15fr .85fr; gap:28px;
-      padding:28px 0 8px;
+      background: var(--navy);
+      color: #fff;
+      padding: 44px 0 34px;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
       align-items:center;
     }
-    .kicker{color:var(--muted); font-weight:600; margin:0 0 10px; font-size:1.02rem}
-    h1{font-size:2.2rem; line-height:1.1; margin:0 0 10px}
-    .tagline{font-size:1.06rem; color:var(--muted); margin:0 0 18px}
-    .quote{
-      margin:0 0 18px;
-      padding:14px 16px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      font-style:italic;
+
+    .name{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      letter-spacing:.08em;
+      margin:0;
+      font-size: 2.4rem;
+      text-transform: uppercase;
     }
-    .btns{display:flex; gap:12px; flex-wrap:wrap}
+
+    .kicker{
+      margin: 10px 0 14px;
+      font-weight:500;
+      color: rgba(255,255,255,.85);
+      text-align:left;
+    }
+
+    .quote{
+      margin: 0 0 18px;
+      font-style: italic;
+      color: rgba(255,255,255,.92);
+      font-size: 1.05rem;
+      text-align:left;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      text-decoration:none;
-      color:var(--text);
-      background:rgba(255,255,255,.04);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 999px;
       font-weight:600;
+      border: 2px solid transparent;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      min-width: 180px;
+    }
+
+    .btn-outline{
+      border-color: rgba(200,162,122,.95);
+      color:#fff;
+      background: transparent;
+    }
+    .btn-outline:hover{
+      transform: translateY(-1px);
+      background: rgba(200,162,122,.12);
+    }
+
+    .btn-gold{
+      background: var(--gold);
+      color: #14283b;
+      border-color: var(--gold);
+    }
+    .btn-gold:hover{
+      transform: translateY(-1px);
+      background: #d3b08a;
+      border-color:#d3b08a;
+    }
+
+    .avatar{
+      width: 320px;
+      max-width: 100%;
+      margin-left:auto;
+      margin-right:auto;
+      border-radius: 10px;
+      overflow:hidden;
+      border: 6px solid rgba(255,255,255,.20);
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+      background: rgba(255,255,255,.08);
+    }
+    .avatar img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    /* =========================
+       MAIN CONTENT SECTIONS
+       ========================= */
+    main{ padding: 26px 0 64px; }
+
+    section{ padding: 34px 0 0; }
+
+    .section-title{
+      text-align:center;
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 2rem;
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .section-rule{
+      width: 72px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 999px;
+      margin: 10px auto 20px;
+    }
+
+    .section-sub{
+      text-align:center;
+      color: var(--muted);
+      margin: 0 auto 22px;
+      max-width: 860px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stack{ display:flex; flex-direction:column; gap: 14px; }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+
+    .item h3{
+      margin:0 0 6px;
+      font-size:1.06rem;
+      color: var(--text);
+    }
+
+    .meta{
+      margin:0 0 10px;
+      color: var(--muted);
       font-size:.95rem;
     }
-    .btn.primary{
-      border-color: rgba(143,211,255,.35);
-      background: rgba(143,211,255,.12);
+
+    ul{ margin:0; padding-left: 18px; }
+    li{ margin:6px 0; }
+
+    /* chips (like your tags) */
+    .chips{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
-    .btn:hover{transform: translateY(-1px); transition:.15s ease}
-    .avatar{
-      border:1px solid var(--line);
-      border-radius: calc(var(--radius) + 10px);
-      overflow:hidden;
-      background:rgba(255,255,255,.03);
-      min-height:320px;
-      display:flex; align-items:center; justify-content:center;
+
+    .chip{
+      font-size:.88rem;
+      color: var(--text);
+      border: 2px solid rgba(200,162,122,.55);
+      background: rgba(200,162,122,.10);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
     }
-    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
-    /* sections */
-    section{padding:34px 0 0}
-    .section-title{
-      margin:0 0 12px; font-size:1.25rem;
-      letter-spacing:.02em;
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-top: 18px;
     }
-    .card{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      border-radius:var(--radius);
-      padding:18px;
-    }
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+
     .pill{
-      border:1px solid var(--line);
-      padding:7px 10px;
-      border-radius:999px;
-      color:var(--muted);
+      border: 2px solid rgba(200,162,122,.55);
+      background: rgba(200,162,122,.10);
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--text);
       font-size:.9rem;
-      background:rgba(255,255,255,.02);
+      font-weight:500;
     }
-    .grid-2{display:grid; grid-template-columns: 1fr 1fr; gap:16px}
-    .item h3{margin:0 0 6px; font-size:1.03rem}
-    .meta{color:var(--muted); margin:0 0 8px; font-size:.95rem}
-    ul{margin:0; padding-left:18px}
-    li{margin:6px 0; color:var(--text)}
-    .chips{margin-top:10px; display:flex; flex-wrap:wrap; gap:10px}
-    .chip{color:var(--muted); font-size:.9rem; border:1px solid var(--line); padding:6px 10px; border-radius:999px}
-    .muted{color:var(--muted)}
+
+    /* “button” inside light sections (like your PDF button) */
+    .btn-inline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(200,162,122,.70);
+      color: var(--navy);
+      background: rgba(200,162,122,.15);
+      font-weight:600;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn-inline:hover{
+      transform: translateY(-1px);
+      background: rgba(200,162,122,.22);
+    }
+
+    /* Contact section look */
+    .contact-cta{
+      text-align:center;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin: 0 auto 22px;
+      max-width: 900px;
+    }
+
+    .contact-actions{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top: 12px;
+    }
+
     footer{
-      margin-top:46px;
-      padding-top:18px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      text-align:center;
+      color: var(--muted);
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
       font-size:.92rem;
     }
-    .contact a{color:var(--text)}
-    /* responsive */
-    @media (max-width: 880px){
-      .hero{grid-template-columns: 1fr; }
-      header{position:relative}
-      nav{display:none}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; text-align:center; }
+      .kicker,.quote{ text-align:center; }
+      .hero-actions{ justify-content:center; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .name{ font-size: 2rem; }
+      .avatar{ width: 260px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">GABRIELA PAREJA</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#training">Training</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <!-- HERO -->
-      <div class="hero">
-        <div>
-          <p class="kicker">Cybersecurity Specialist · Governance, Risk & Compliance · Enterprise Architecture</p>
-          <h1>GABRIELA PAREJA MENA</h1>
-          <p class="quote">“Building secure, human-centered strategies that turn risk into business value.”</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <h1 class="name">GABRIELA PAREJA MENA</h1>
+        <p class="kicker">Cybersecurity Specialist · Governance, Risk &amp; Compliance · Enterprise Architecture</p>
+        <p class="quote">“Building secure, human-centered strategies that turn risk into business value.”</p>
 
-          <div class="btns">
-            <a class="btn primary" href="https://drive.google.com/" target="_blank" rel="noopener">Download Resume (PDF)</a>
-            <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          </div>
-
-          <p class="tagline" style="margin-top:14px;">
-            Open to remote &amp; hybrid international roles focused on Cybersecurity, GRC &amp; AI Governance.
-          </p>
-        </div>
-
-        <div class="avatar" aria-label="Profile image">
-          <!-- Tip: If you want, replace the src with a local file like: src="assets/profile.png" -->
-          <img src="https://framerusercontent.com/images/fWMjklAf2q0EAaVwr7HtIVV7U.png?height=3328&width=3219" alt="Gabriela Pareja" />
+        <div class="hero-actions">
+          <!-- Replace with your real links -->
+          <a class="btn btn-gold" href="mailto:your@email.com">Email Me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
         </div>
       </div>
 
-      <!-- ABOUT -->
-      <section id="about">
-        <h2 class="section-title">About Gabriela</h2>
-        <div class="card">
-          <p style="margin-top:0">
-            Cybersecurity and information governance specialist with broad experience leading strategic risk, compliance, and technology initiatives in the financial sector.
-          </p>
-          <p>
-            She has a proven record designing and implementing defense-in-depth and Zero Trust architectures, aligning cybersecurity and data protection to business objectives, and fostering a culture of ethical, human-centered leadership.
-          </p>
-          <p style="margin-bottom:0">
-            Passionate about integrating governance, innovation, and resilience, she believes security is not only a technical discipline, but a strategic enabler of trust, transparency, and business value.
-          </p>
+      <div class="avatar" aria-label="Profile image">
+        <img src="https://framerusercontent.com/images/fWMjklAf2q0EAaVwr7HtIVV7U.png?height=3328&width=3219" alt="Gabriela Pareja" />
+      </div>
+    </div>
+  </header>
 
-          <div class="pill-row" aria-label="Key themes">
-            <span class="pill">Strategy</span>
-            <span class="pill">Integrity</span>
-            <span class="pill">Humanity</span>
-            <span class="pill">GRC</span>
-            <span class="pill">Risk Management</span>
-            <span class="pill">Data Protection</span>
-            <span class="pill">Enterprise Architecture</span>
-          </div>
+  <main class="wrap">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About Gabriela</h2>
+      <div class="section-rule"></div>
+
+      <div class="card">
+        <p>
+          Cybersecurity and information governance specialist with broad experience leading strategic risk, compliance,
+          and technology initiatives in the financial sector.
+        </p>
+        <p>
+          She has a proven record designing and implementing <strong>defense-in-depth</strong> and <strong>Zero Trust</strong> architectures,
+          aligning cybersecurity and data protection to business objectives, and fostering a culture of ethical,
+          <strong>human-centered leadership</strong>.
+        </p>
+        <p style="margin-bottom:0">
+          Passionate about integrating governance, innovation, and resilience, she believes security is not only a
+          technical discipline, but a <strong>strategic enabler</strong> of trust, transparency, and business value.
+        </p>
+
+        <p style="margin-top:18px; text-align:center; font-weight:600; color:var(--navy);">
+          Open to remote &amp; hybrid international roles focused on Cybersecurity, GRC &amp; AI Governance.
+        </p>
+
+        <div class="pill-row" aria-label="Key themes">
+          <span class="pill">Strategy</span>
+          <span class="pill">Integrity</span>
+          <span class="pill">Humanity</span>
+          <span class="pill">GRC</span>
+          <span class="pill">Risk Management</span>
+          <span class="pill">Data Protection</span>
+          <span class="pill">Enterprise Architecture</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- EXPERIENCE -->
-      <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="section-rule"></div>
 
-        <div class="card item" style="margin-bottom:14px;">
+      <div class="stack">
+        <div class="card item">
           <h3>External Cybersecurity Consultant</h3>
           <p class="meta">Oct 2025 – Ongoing · Remote / International</p>
           <ul>
@@ -211,7 +374,7 @@
           </div>
         </div>
 
-        <div class="card item" style="margin-bottom:14px;">
+        <div class="card item">
           <h3>Information Security Manager — Banco Solidario</h3>
           <p class="meta">Jun 2024 – Sep 2025 · Quito, EC</p>
           <ul>
@@ -225,7 +388,7 @@
           </div>
         </div>
 
-        <div class="card item" style="margin-bottom:14px;">
+        <div class="card item">
           <h3>Technology Compliance Manager — Banco Solidario</h3>
           <p class="meta">Dec 2019 – May 2024 · Quito, EC</p>
           <ul>
@@ -248,6 +411,7 @@
               <li>Provided assurance over cybersecurity controls, risk reporting and compliance maturity.</li>
             </ul>
           </div>
+
           <div class="card item">
             <h3>IT Auditor — Central Bank of Ecuador</h3>
             <p class="meta">Apr 2008 – Apr 2015 · Quito, EC</p>
@@ -257,173 +421,199 @@
             </ul>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- PROJECTS -->
-      <section id="projects">
-        <h2 class="section-title">Key Projects</h2>
-        <div class="grid-2">
-          <div class="card item">
-            <h3>Multi-Layer Security Architecture (Defense in Depth)</h3>
-            <p class="meta">Oct 2025 – Ongoing</p>
-            <p class="muted" style="margin:0">
-              Designed and implemented a layered architecture mapping technical and organizational controls by risk level. Improved visibility, reduced exposure to threats, and strengthened stakeholder confidence for an insurance enterprise.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>CyberSOC Consolidation</h3>
-            <p class="meta">May 2025</p>
-            <p class="muted" style="margin:0">
-              Merged two monitoring centers into a unified CyberSOC, expanding coverage to 100+ critical assets. Enhanced correlation and reduced false positives, improving mean time to detect and respond.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Risk-Based Security Methodology</h3>
-            <p class="meta">Dec 2024</p>
-            <p class="muted" style="margin:0">
-              Developed a methodology to classify and prioritize risks based on business impact, integrating ISO 27005 and NIST CSF principles and promoting a data-driven risk culture.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Secure SD-WAN &amp; Microsegmentation (Spine &amp; Leaf)</h3>
-            <p class="meta">May 2024</p>
-            <p class="muted" style="margin:0">
-              Modernized network with Aruba SD-WAN and microsegmentation. Optimized latency and availability, reduced lateral movement risk, and increased operational resilience.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Secure Access Service Edge (SASE) Deployment</h3>
-            <p class="meta">Nov 2024</p>
-            <p class="muted" style="margin:0">
-              Implemented SASE with Prisma Access and MDM to enforce adaptive zero-trust policies and secure connectivity for users and devices across cloud workloads.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Privileged Access Management (PAM)</h3>
-            <p class="meta">Nov 2023</p>
-            <p class="muted" style="margin:0">
-              Deployed Delinea PAM to enforce least-privilege access, session monitoring and traceability, strengthening segregation of duties and alignment with ISO/NIST standards.
-            </p>
-          </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Key Projects</h2>
+      <div class="section-rule"></div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h3>Multi-Layer Security Architecture (Defense in Depth)</h3>
+          <p class="meta">Oct 2025 – Ongoing</p>
+          <p style="margin:0; color:var(--muted);">
+            Designed and implemented a layered architecture mapping technical and organizational controls by risk level. Improved visibility, reduced exposure to threats, and strengthened stakeholder confidence for an insurance enterprise.
+          </p>
         </div>
 
-        <p class="muted" style="margin-top:12px;">
-          <a class="btn" href="https://drive.google.com/" target="_blank" rel="noopener">Open full project list (PDF)</a>
+        <div class="card item">
+          <h3>CyberSOC Consolidation</h3>
+          <p class="meta">May 2025</p>
+          <p style="margin:0; color:var(--muted);">
+            Merged two monitoring centers into a unified CyberSOC, expanding coverage to 100+ critical assets. Enhanced correlation and reduced false positives, improving mean time to detect and respond.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Risk-Based Security Methodology</h3>
+          <p class="meta">Dec 2024</p>
+          <p style="margin:0; color:var(--muted);">
+            Developed a methodology to classify and prioritize risks based on business impact, integrating ISO 27005 and NIST CSF principles and promoting a data-driven risk culture.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Secure SD-WAN &amp; Microsegmentation (Spine &amp; Leaf)</h3>
+          <p class="meta">May 2024</p>
+          <p style="margin:0; color:var(--muted);">
+            Modernized network with Aruba SD-WAN and microsegmentation. Optimized latency and availability, reduced lateral movement risk, and increased operational resilience.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Secure Access Service Edge (SASE) Deployment</h3>
+          <p class="meta">Nov 2024</p>
+          <p style="margin:0; color:var(--muted);">
+            Implemented SASE with Prisma Access and MDM to enforce adaptive zero-trust policies and secure connectivity for users and devices across cloud workloads.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Privileged Access Management (PAM)</h3>
+          <p class="meta">Nov 2023</p>
+          <p style="margin:0; color:var(--muted);">
+            Deployed Delinea PAM to enforce least-privilege access, session monitoring and traceability, strengthening segregation of duties and alignment with ISO/NIST standards.
+          </p>
+        </div>
+      </div>
+
+      <p style="text-align:center; margin-top:18px;">
+        <a class="btn-inline" href="https://drive.google.com/" target="_blank" rel="noopener">Open full project list (PDF)</a>
+      </p>
+    </section>
+
+    <!-- EDUCATION & CERTS -->
+    <section id="education">
+      <h2 class="section-title">Education &amp; Professional Certifications</h2>
+      <div class="section-rule"></div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h3>MBA – Business Administration</h3>
+          <p class="meta">Universidad Internacional del Ecuador</p>
+          <p style="margin:0; color:var(--muted);">
+            Developed a solid understanding of business strategy, finance, and operations to align technology and cybersecurity programs with corporate objectives.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Bachelor’s Degree in Systems Engineering</h3>
+          <p class="meta">Escuela Politécnica del Ejército (ESPE)</p>
+          <p style="margin:0; color:var(--muted);">
+            Specialized in software lifecycle management, IT infrastructure, and IT auditing. Gained strong foundations in programming, network design, and IT governance.
+          </p>
+        </div>
+      </div>
+
+      <div class="card item" style="margin-top:16px;">
+        <h3>Professional Certifications</h3>
+        <p class="meta">Chronological order (most recent below)</p>
+        <ul>
+          <li>Certified in Cybersecurity (CC) – (ISC)² · 2025</li>
+          <li>WomenCISO – Cybersecurity &amp; AI School for Women (ITAM / EpicLab) · 2025</li>
+          <li>ISO/IEC 38500 – IT Corporate Governance Lead Professional · 2020</li>
+          <li>CRISC – ISACA · 2018</li>
+          <li>COSO Internal Control Framework Certification · 2018</li>
+          <li>CISA – ISACA · 2008</li>
+          <li>CISSP – (ISC)² · In Progress</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership">
+      <h2 class="section-title">Leadership &amp; Recognition</h2>
+      <div class="section-rule"></div>
+
+      <div class="grid-2">
+        <div class="card item">
+          <h3>Women Leaders 2022 — First Place Award</h3>
+          <p class="meta">Women Leaders Workshop · IT Now / EpicLab / BID</p>
+          <p style="margin:0; color:var(--muted);">
+            Awarded first place for the design and presentation of an innovation project promoting inclusion. Recognized for strategic vision, leadership, and social impact.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Leader IT 2024 — IT Ahora Magazine</h3>
+          <p class="meta">Ecuador · Nominated as one of the Top IT Leaders 2024</p>
+          <p style="margin:0; color:var(--muted);">
+            Nominated among Ecuador’s leading IT executives for contributions to cybersecurity governance, risk management, and digital transformation in the financial sector.
+          </p>
+        </div>
+      </div>
+
+      <div class="card item" style="margin-top:16px;">
+        <h3>Editorial Collaboration — “CIO &amp; CISO: A Strategic Alliance for Digital Security”</h3>
+        <p class="meta">IT Ahora Magazine · September 2025</p>
+        <p style="margin:0; color:var(--muted);">
+          Contributed as author to the IT Ahora article emphasizing the importance of collaboration between technology and security leadership in building resilient organizations.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <!-- EDUCATION & CERTS -->
-      <section id="education">
-        <h2 class="section-title">Education &amp; Professional Certifications</h2>
-        <div class="grid-2">
-          <div class="card item">
-            <h3>MBA – Business Administration</h3>
-            <p class="meta">Universidad Internacional del Ecuador</p>
-            <p class="muted" style="margin:0">
-              Developed a solid understanding of business strategy, finance, and operations to align technology and cybersecurity programs with corporate objectives.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Bachelor’s Degree in Systems Engineering</h3>
-            <p class="meta">Escuela Politécnica del Ejército (ESPE)</p>
-            <p class="muted" style="margin:0">
-              Specialized in software lifecycle management, IT infrastructure, and IT auditing. Gained strong foundations in programming, network design, and IT governance.
-            </p>
-          </div>
-        </div>
+    <!-- TRAINING -->
+    <section id="training">
+      <h2 class="section-title">Training &amp; Specialized Courses</h2>
+      <div class="section-rule"></div>
 
-        <div class="card item" style="margin-top:16px;">
-          <h3>Professional Certifications</h3>
-          <p class="meta">Chronological order (most recent below)</p>
-          <ul>
-            <li>Certified in Cybersecurity (CC) – (ISC)² · 2025</li>
-            <li>WomenCISO – Cybersecurity &amp; AI School for Women (ITAM / EpicLab) · 2025</li>
-            <li>ISO/IEC 38500 – IT Corporate Governance Lead Professional · 2020</li>
-            <li>CRISC – ISACA · 2018</li>
-            <li>COSO Internal Control Framework Certification · 2018</li>
-            <li>CISA – ISACA · 2008</li>
-            <li>CISSP – (ISC)² · In Progress</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- LEADERSHIP -->
-      <section id="leadership">
-        <h2 class="section-title">Leadership &amp; Recognition</h2>
-        <div class="grid-2">
-          <div class="card item">
-            <h3>Women Leaders 2022 — First Place Award</h3>
-            <p class="meta">Women Leaders Workshop · IT Now / EpicLab / BID</p>
-            <p class="muted" style="margin:0">
-              Awarded first place for the design and presentation of an innovation project promoting inclusion. Recognized for strategic vision, leadership, and social impact.
-            </p>
-          </div>
-          <div class="card item">
-            <h3>Leader IT 2024 — IT Ahora Magazine</h3>
-            <p class="meta">Ecuador · Nominated as one of the Top IT Leaders 2024</p>
-            <p class="muted" style="margin:0">
-              Nominated among Ecuador’s leading IT executives for contributions to cybersecurity governance, risk management, and digital transformation in the financial sector.
-            </p>
-          </div>
-        </div>
-        <div class="card item" style="margin-top:16px;">
-          <h3>Editorial Collaboration — “CIO &amp; CISO: A Strategic Alliance for Digital Security”</h3>
-          <p class="meta">IT Ahora Magazine · September 2025</p>
-          <p class="muted" style="margin:0">
-            Contributed as author to the IT Ahora article emphasizing the importance of collaboration between technology and security leadership in building resilient organizations.
+      <div class="grid-2">
+        <div class="card item">
+          <h3>CISSP – Certified Information Systems Security Professional (prep)</h3>
+          <p class="meta">2025</p>
+          <p style="margin:0; color:var(--muted);">
+            Advanced preparation covering security architecture, operations, and governance aligned with (ISC)² CISSP domains.
           </p>
         </div>
-      </section>
 
-      <!-- TRAINING -->
-      <section id="training">
-        <h2 class="section-title">Training &amp; Specialized Courses</h2>
-        <div class="grid-2">
-          <div class="card item">
-            <h3>CISSP – Certified Information Systems Security Professional (prep)</h3>
-            <p class="meta">2025</p>
-            <p class="muted" style="margin:0">Advanced preparation covering security architecture, operations, and governance aligned with (ISC)² CISSP domains.</p>
-          </div>
-          <div class="card item">
-            <h3>CISM – Certified Information Security Manager (prep)</h3>
-            <p class="meta">2024</p>
-            <p class="muted" style="margin:0">Manager-level program focused on security governance, risk management, and incident response, aligned with ISACA’s CISM framework.</p>
-          </div>
-          <div class="card item">
-            <h3>ISO 27001 - 2022</h3>
-            <p class="meta">2022</p>
-            <p class="muted" style="margin:0">ISMS implementation aligned with ISO 27001:2022.</p>
-          </div>
-          <div class="card item">
-            <h3>Full portfolio (PDF)</h3>
-            <p class="meta">Downloads</p>
-            <p class="muted" style="margin:0">
-              <a class="btn" href="https://drive.google.com/" target="_blank" rel="noopener">Download full training portfolio (PDF)</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="card">
-          <p style="margin-top:0">
-            I believe that security is not just about technology — it’s about people, trust, and strategy. Let’s collaborate to build secure, human-centered digital ecosystems.
-          </p>
-          <p class="contact" style="margin-bottom:0">
-            <strong>Email:</strong> <a href="mailto:your@email.com">your@email.com</a>
-            &nbsp;·&nbsp;
-            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Profile</a>
+        <div class="card item">
+          <h3>CISM – Certified Information Security Manager (prep)</h3>
+          <p class="meta">2024</p>
+          <p style="margin:0; color:var(--muted);">
+            Manager-level program focused on security governance, risk management, and incident response, aligned with ISACA’s CISM framework.
           </p>
         </div>
-      </section>
+
+        <div class="card item">
+          <h3>ISO 27001 - 2022</h3>
+          <p class="meta">2022</p>
+          <p style="margin:0; color:var(--muted);">
+            ISMS implementation aligned with ISO 27001:2022.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Full portfolio (PDF)</h3>
+          <p class="meta">Downloads</p>
+          <p style="margin:0;">
+            <a class="btn-inline" href="https://drive.google.com/" target="_blank" rel="noopener">Download full training portfolio (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="section-rule"></div>
+
+      <p class="contact-cta">
+        I believe that security is not just about technology — it’s about people, trust, and strategy.
+        Let’s collaborate to build secure, human-centered digital ecosystems.
+      </p>
+
+      <div class="contact-actions">
+        <a class="btn btn-gold" href="mailto:your@email.com">Email Me</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
 
       <footer>
-        <div>© 2025 Gabriela Pareja · All rights reserved.</div>
-        <div class="muted">Static version (Framer-free)</div>
+        © 2025 Gabriela Pareja · All rights reserved.
       </footer>
-    </main>
-  </div>
+    </section>
+
+  </main>
 </body>
 </html>
